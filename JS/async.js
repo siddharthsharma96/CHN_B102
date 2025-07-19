@@ -84,11 +84,3 @@ let counter = () => {
 let i = counter();
 i();
 i();
-
-i();
-
-i();
-
-i();
-
-i();
