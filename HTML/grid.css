@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.gridContainer {
+  height: 90vh;
+  border: 1px solid red;
+  display: grid;
+  /* grid-template-columns: 200px 200px 200px; */
+  /* grid-template-columns: repeat(3, 300px); */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-rows: 200px 100px 300px; */
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  /* row-gap: 10px; */
+  /* column-gap: 10px; */
+  gap: 10px;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.gridItem {
+  padding: 50px;
+  color: red;
+  background-color: yellow;
+  font-size: 28px;
+  font-weight: 700;
+  border: 1px solid red;
+}
+
+.gridItem:first-child {
+  /* grid-column-start: 1;
+  grid-column-end: -1; */
+  grid-column: 1/-1;
+  /* grid-row-start: 1;
+  grid-row-end: 3; */
+  grid-row: 2/3;
+}
+
+.layout {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  /* grid-template-areas: "headers headers headers" "navbar mainArea aside" "footer footer footer"; */
+  /* gap: 10px; */
+}
+header {
+  /* grid-area: headers; */
+  grid-column: 1/-1;
+  background-color: red;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+nav {
+  /* grid-area: navbar; */
+  background-color: blue;
+  font-weight: 700;
+}
+main {
+  /* grid-area: mainArea; */
+  background-color: green;
+  font-weight: 700;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside {
+  /* grid-area: aside; */
+  background-color: purple;
+  color: white;
+  font-weight: 700;
+}
+footer {
+  /* grid-area: footer; */
+  background-color: black;
+  color: white;
+  text-align: center;
+  grid-column: 1/-1;
+}
+
+/* 
+576px mobile
+768px tabs
+992px small screens
+1200px large screen
+*/
+
+@media (min-width: 992px) {
+  header {
+    background-color: pink;
+  }
+}
+
+@media (min-width: 678px) and (max-width: 992px) {
+  .layout {
+    grid-template-columns: 3fr 1fr;
+  }
+  header {
+    color: yellow;
+    font-size: 34px;
+  }
+  nav {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .layout {
+    grid-template-columns: 3fr 1fr;
+    gap: 10px;
+  }
+  header {
+    background-color: yellowgreen;
+    font-size: 24px;
+  }
+  main {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  nav {
+    display: none;
+  }
+}

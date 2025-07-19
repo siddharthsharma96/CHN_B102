@@ -1,0 +1,80 @@
+/* 1. Universal/global selector */
+* {
+  padding: 0px;
+}
+
+/* tag selector */
+h3 {
+  border: 5px solid red;
+  /* padding: 18px; */
+  /* top right bottom left */
+  /* padding: 20px 30px 40px 60px; */
+  /* padding: 30px 80px; */
+  padding: 40px;
+  margin: 30px;
+}
+
+/* id Selector # */
+#as {
+  color: orange;
+  font-size: 40px;
+}
+
+/* class selector . */
+.a {
+  font-weight: 700;
+  color: green;
+  background-color: red;
+}
+
+/* group selector */
+
+h5,
+h6 {
+  color: yellowgreen;
+}
+
+/* descendent selector */
+div p {
+  color: red;
+}
+
+/* child selector */
+
+div > p {
+  border: 2px solid red;
+  color: grey;
+}
+
+/* attribute selector */
+button[type="reset"] {
+  color: red;
+}
+
+/* pseudo classes  :*/
+li:nth-child(2) {
+  color: green;
+  font-size: 32px;
+}
+li:hover {
+  color: red;
+}
+
+li:first-child {
+  color: yellow;
+}
+
+/* pseudo Elements ::*/
+#w::before {
+  content: "hi sid this side";
+  font-size: 40px;
+}
+#w::first-letter {
+  font-size: 80px;
+  color: green;
+}
+
+h1 {
+  display: inline;
+  border: 1px red solid;
+}
