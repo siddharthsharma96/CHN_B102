@@ -1,0 +1,40 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.counterCont {
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  padding: 40px 80px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.btnCntn {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  border: none;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.inc {
+  background-color: green;
+}
+.dec {
+  background-color: red;
+}
