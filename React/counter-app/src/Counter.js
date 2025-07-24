@@ -1,11 +1,11 @@
 import BtnContainer from "./BtnContainer";
 import Para from "./Para";
 
-const Counter = ({ val, handleDecrement, handleIncrement }) => {
+const Counter = ({ val, handleDecrement, handleIncrement, refVal }) => {
   return (
     <div className="counterCont">
       {/* <p className="value">{val}</p> */}
-      <Para cls={"value"} cnt={val}></Para>
+      <Para cls={"value"} cnt={val} refVal={refVal}></Para>
       <BtnContainer
         handleDecrement={handleDecrement}
         handleIncrement={handleIncrement}

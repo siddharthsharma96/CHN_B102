@@ -1,5 +1,9 @@
-const Para = ({ cls, cnt }) => {
-  return <p className={cls}>{cnt}</p>;
+const Para = ({ cls, cnt, refVal }) => {
+  return (
+    <p ref={refVal} className={cls}>
+      {cnt}
+    </p>
+  );
 };
 
 export default Para;
