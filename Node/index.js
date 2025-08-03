@@ -1,10 +1,11 @@
 const fs = require("fs");
 const http = require("http");
 const url = require("url");
+const replaceTemplates = require("./modules/replaceTemplates");
 
 // Blocking Synchronous
 // 1. path .encryption
-const readData = fs.readFileSync("./txt/final.txt", "utf-8");
+// const readData = fs.readFileSync("./txt/final.txt", "utf-8");
 
 // console.log(readData);
 
@@ -43,16 +44,35 @@ const readData = fs.readFileSync("./txt/final.txt", "utf-8");
 // 4XX :Client Error
 // 5xx :Server Error
 
+const overview = fs.readFileSync("./templates/Overview.html", "utf-8");
+const product = fs.readFileSync("./templates/product.html", "utf-8");
+const card = fs.readFileSync("./templates/card.html", "utf-8");
+
 // STep 1 : Server Create
+const productData = fs.readFileSync("./dev-data/data.json", "utf-8");
 
 const server = http.createServer((req, res) => {
   //   console.log(req.url);
   const { query, pathname } = url.parse(req.url, true);
   console.log(query, pathname);
-  if (pathname === "/about") {
-    res.end(readData);
+  if (pathname === "/" || pathname === "/overview") {
+    res.writeHead(200, { "Content-type": "text/html" });
+    const cardsHtml = JSON.parse(productData)
+      .map((product) => replaceTemplates(card, product))
+      .join("");
+    const output = overview.replace("{%PRODUCT_CARDS%}", cardsHtml);
+    res.end(output);
+  } else if (pathname === "/product") {
+    res.writeHead(200, { "Content-type": "text/html" });
+    const products = JSON.parse(productData)[query.id];
+    const output = replaceTemplates(product, products);
+    res.end(output);
+  } else if (pathname === "/api") {
+    res.writeHead(200, { "Content-type": "application/json" });
+
+    res.end(productData);
   } else {
-    res.end("My serevr Created heelo world ");
+    res.end("Url not found");
   }
 });
 

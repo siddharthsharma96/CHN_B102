@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Darjeeling Tea | Indian Farm Fresh</title>
+    <title>{%PRODUCTNAME%} | Indian Farm Fresh</title>
     <style>
       * {
         margin: 0;
@@ -124,38 +124,34 @@
 
       <div class="product-detail">
         <div class="product-header">
-          <div class="product-emoji">🍵</div>
-          <div class="organic-badge">Organic</div>
-          <h1 class="product-title">Darjeeling Tea</h1>
-          <p>From Darjeeling, West Bengal</p>
+          <div class="product-emoji">{%IMAGE%}</div>
+          <div class="organic-badge {%NOT_ORGANIC%}">Organic</div>
+          <h1 class="product-title">{%PRODUCTNAME%}</h1>
+          <p>From {%FROM%}</p>
         </div>
 
         <div class="product-info">
           <div class="info-grid">
             <div class="info-item">
               <span>❤️</span>
-              <div>Antioxidants, Caffeine, Theanine</div>
+              <div>{%NUTRIENTS%}</div>
             </div>
             <div class="info-item">
               <span>📦</span>
-              <div>250 g</div>
+              <div>{%QUANTITY%}</div>
             </div>
             <div class="info-item">
               <span>₹</span>
-              <div>350</div>
+              <div>{%PRICE%}</div>
             </div>
           </div>
 
           <div class="product-description">
             <h3>About this product</h3>
-            <p>
-              First flush Darjeeling tea leaves, known as the 'Champagne of
-              Teas'. Grown in the Himalayan foothills, this tea has a delicate
-              aroma and light color with a distinctive muscatel flavor.
-            </p>
+            <p>{%DESCRIPTION%}</p>
           </div>
 
-          <button class="add-to-cart">Add to Cart (₹350)</button>
+          <button class="add-to-cart">Add to Cart (₹{%PRICE%})</button>
         </div>
       </div>
     </div>
