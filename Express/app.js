@@ -1,5 +1,7 @@
 const express = require("express");
 const RestaurantRoute = require("./Routes/restaurantRoutes");
+const MenuRoute = require("./Routes/menuRoutes");
+
 const app = express();
 app.use(express.json());
 app.use((req, res, next) => {
@@ -9,5 +11,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/restaurant", RestaurantRoute);
+app.use("/api/v1/menu", MenuRoute);
 
 module.exports = app;

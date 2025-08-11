@@ -8,7 +8,7 @@ const restaurantSchema = new mongoose.Schema(
       unique: [true, "Already taken by someone else"],
     },
     cloudinaryImageId: { type: String },
-    locality: String,
+    locality: { type: String },
     areaName: { type: String },
     costForTwo: { type: String },
     cuisines: [String],

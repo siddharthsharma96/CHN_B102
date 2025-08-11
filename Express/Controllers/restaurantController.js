@@ -106,7 +106,7 @@ exports.updateRestaurant = async (req, res) => {
         message: "no data found please check id",
       });
     }
-    res.status(200).json({
+    res.status(201).json({
       status: "Succesfully Updated",
       data: updatedRestaurant,
     });
@@ -139,7 +139,7 @@ exports.deleteRestaurant = async (req, res) => {
         message: "no data found please check id",
       });
     }
-    res.status(200).json({
+    res.status(204).json({
       status: "Success",
       message: "deleted",
     });
