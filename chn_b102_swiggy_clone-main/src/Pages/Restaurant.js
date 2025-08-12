@@ -11,13 +11,11 @@ const Restaurant = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const found = restaurants.find((i) => i.info.id === resId);
+        const found = restaurants.find((i) => i._id === resId);
         setRestaurant(found);
-        const response = await fetch(
-          "https://chn-b102-swiggy-clone.vercel.app/menu.json"
-        );
+        const response = await fetch("http://localhost:9000/api/v1/menu");
         const menuData = await response.json();
-        setMenu(menuData || []);
+        setMenu(menuData.data || []);
       } catch (err) {
         console.log(err);
       }
@@ -28,7 +26,7 @@ const Restaurant = () => {
   return (
     <div className="restaurant">
       <div className="restaurant__breadcrumb">
-        <span>Home/Noida/{restaurant?.info?.name}</span>
+        <span>Home/Noida/{restaurant?.name}</span>
       </div>
       <div className="restaurant__container">
         <RestaurantInfo restaurant={restaurant}></RestaurantInfo>
@@ -36,7 +34,7 @@ const Restaurant = () => {
           {menu.map((res) => {
             return (
               <MenuItem
-                res={res?.card?.card}
+                res={res}
                 cartItems={cartItems}
                 addItem={addItem}
                 removeItem={removeItem}

@@ -34,8 +34,8 @@ const Carousel = () => {
         <ul className="carousel__slides" ref={slidesContainerRef}>
           {restaurants.map((res) => {
             return (
-              <li className="carousel__slide" key={res.info.id}>
-                <Card res={res.info} show={false}></Card>
+              <li className="carousel__slide" key={res._id}>
+                <Card res={res} show={false}></Card>
               </li>
             );
           })}

@@ -14,7 +14,7 @@ const MenuItem = ({ res, cartItems, addItem, removeItem }) => {
           res.itemCards.map((r) => {
             return (
               <MenuItemShow
-                r={r.card.info}
+                r={r}
                 cartItems={cartItems}
                 addItem={addItem}
                 removeItem={removeItem}

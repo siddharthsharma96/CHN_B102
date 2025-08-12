@@ -11,12 +11,10 @@ function App() {
   useEffect(() => {
     const fetchrestaurants = async () => {
       try {
-        const response = await fetch(
-          "https://chn-b102-swiggy-clone.vercel.app/Restaurant.json"
-        );
+        const response = await fetch("http://localhost:9000/api/v1/restaurant");
         if (response.ok) {
           const data = await response.json();
-          setRestaurants(data);
+          setRestaurants(data.data.restaurants);
         }
       } catch (err) {}
     };
@@ -24,7 +22,7 @@ function App() {
   }, []);
   const addItem = (item) => {
     const existingIndex = cartItems.findIndex(
-      (cartItem) => cartItem.id === item.id
+      (cartItem) => cartItem._id === item._id
     );
     if (existingIndex !== -1) {
       const updateCart = [...cartItems];
@@ -37,7 +35,7 @@ function App() {
 
   const removeItem = (item) => {
     const existingIndex = cartItems.findIndex(
-      (cartItem) => cartItem.id === item.id
+      (cartItem) => cartItem._id === item._id
     );
     if (existingIndex !== -1) {
       const updateCart = [...cartItems];
