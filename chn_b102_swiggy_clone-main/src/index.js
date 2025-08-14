@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CreateRestaurant from "./Pages/CreateRestaurant";
 // import Home from "./Pages/Home";
 // import Cart from "./Pages/Carts";
 // import Help from "./Pages/Help";
@@ -66,6 +67,10 @@ const urls = createBrowserRouter([
             <Restaurant></Restaurant>
           </Suspense>
         ),
+      },
+      {
+        path: "/create",
+        element: <CreateRestaurant></CreateRestaurant>,
       },
       {
         path: "*",

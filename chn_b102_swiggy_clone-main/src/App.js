@@ -11,7 +11,9 @@ function App() {
   useEffect(() => {
     const fetchrestaurants = async () => {
       try {
-        const response = await fetch("http://localhost:9000/api/v1/restaurant");
+        const response = await fetch(
+          "https://backendchnb102.onrender.com/api/v1/restaurant/"
+        );
         if (response.ok) {
           const data = await response.json();
           setRestaurants(data.data.restaurants);

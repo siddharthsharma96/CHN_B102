@@ -13,7 +13,9 @@ const Restaurant = () => {
       try {
         const found = restaurants.find((i) => i._id === resId);
         setRestaurant(found);
-        const response = await fetch("http://localhost:9000/api/v1/menu");
+        const response = await fetch(
+          "https://backendchnb102.onrender.com/api/v1/menu"
+        );
         const menuData = await response.json();
         setMenu(menuData.data || []);
       } catch (err) {
